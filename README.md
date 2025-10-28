@@ -4,7 +4,7 @@
 
 <div style='display:flex; gap: 0.25rem; '>
   <a href='https://arxiv.org/pdf/2510.22950'><img src='https://img.shields.io/badge/Paper-PDF-red'></a>
-  <a href='https://github.com/xiaomi-research/diffrhythm2'><img src='https://img.shields.io/badge/Project-Demo-green'></a>
+  <a href='https://aslp-lab.github.io/DiffRhythm2.github.io'><img src='https://img.shields.io/badge/Project-Demo-green'></a>
   <a href='https://huggingface.co/ASLP-lab/DiffRhythm2'><img src='https://img.shields.io/badge/%F0%9F%A4%97%20Hugging%20Face-Models-yellow'></a>
   <a href='https://github.com/xiaomi-research/diffrhythm2'><img src='https://img.shields.io/badge/%F0%9F%A4%97%20Hugging%20Face-Space-yellow'></a>
   <a href="https://github.com/xiaomi-research/diffrhythm2/blob/main/LICENSE"><img alt="License" src="https://img.shields.io/badge/License-Apache%202.0-blue?&color=blue"/></a>

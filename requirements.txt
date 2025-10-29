@@ -12,7 +12,7 @@ librosa==0.9.2
 muq==0.1.0
 numpy==1.26.0
 onnx==1.17.0
-onnxruntime==1.16.3
+onnxruntime
 pykakasi==2.3.0
 pyopenjtalk==0.4.1
 pyparsing==3.2.3
@@ -23,4 +23,4 @@ scipy==1.15.2
 pedalboard
 unidecode
 phonemizer
-
+py3langid

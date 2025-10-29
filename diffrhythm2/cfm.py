@@ -130,7 +130,7 @@ class CFM(nn.Module):
         end_pos = 0
         for bid in block_iterator:
             clean_lens = torch.LongTensor([clean_emb_stream.shape[1]]).to(device)
-            print(text_lens, clean_lens, noisy_lens, clean_emb_stream.shape, flush=True)
+            #print(text_lens, clean_lens, noisy_lens, clean_emb_stream.shape, flush=True)
 
             # all one mask
             attn_mask = torch.ones(batch, 1, noisy_lens.max(), (text_lens + clean_lens + noisy_lens).max(), device=device).bool() # [B, 1, Q, KV]

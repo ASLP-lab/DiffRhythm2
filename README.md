@@ -25,7 +25,7 @@ DiffRhythm 2 (Chinese: 谛韵, Dì Yùn) is the next-generation open-sourced mus
 - [ ] Support Colab.
 - [ ] Gradio support.
 - [ ] Song extension.
-- [ ] Instrument music generation.
+- [ ] Instrumental music generation.
 - [x] Release code and weights.
 - [x] Release paper to Arxiv.
 
@@ -58,6 +58,8 @@ On Linux you can now simply use the inference script:
 # For inference using a reference WAV file
 bash inference.sh
 ```
+
+Weights will be automatically downloaded from Hugging Face upon the first run.
 
 Example files of lrc and reference audio can be found in `example`. 
 

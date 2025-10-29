@@ -18,7 +18,7 @@ Yuepeng Jiang, Huakang Chen, Ziqian Ning, Jixun Yao, Zerui Han, Di Wu, Meng Meng
   🎵 <a href="https://aslp-lab.github.io/DiffRhythm.github.io/">Demo</a>
 </p> -->
 
-DiffRhythm 2 (Chinese: 谛韵, Dì Yùn) is the open-sourced autoregressive diffusion based music generation model that is capable of creating full-length songs. The name combines "Diff" (referencing its diffusion architecture) with "Rhythm" (highlighting its focus on music and song creation). The Chinese name 谛韵 (Dì Yùn) phonetically mirrors "DiffRhythm", where "谛" (attentive listening) symbolizes auditory perception, and "韵" (melodic charm) represents musicality.
+DiffRhythm 2 (Chinese: 谛韵, Dì Yùn) is the next-generation open-sourced music generation framework that advances the original DiffRhythm with a semi-autoregressive diffusion architecture. It is capable of generating full-length songs with precise lyric alignment and coherent musical structures. The name inherits the essence of DiffRhythm — “Diff” reflects its diffusion-based generative backbone, while “Rhythm” emphasizes its dedication to musicality and temporal flow. The Chinese name 谛韵 (Dì Yùn) continues this dual symbolism: “谛” (attentive listening) represents perceptual awareness, and “韵” (melodic charm) captures the expressive beauty of music.
 
 
 ## TODOs

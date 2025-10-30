@@ -20,6 +20,7 @@ import os
 from tqdm import tqdm
 import random
 import pedalboard
+import numpy as np
 
 from muq import MuQMuLan
 from diffrhythm2.cfm import CFM
@@ -135,6 +136,20 @@ def parse_lyrics(lyrics: str):
             tokens = tokens + [STRUCT_INFO['[stop]']]
             lyrics_with_time.append(tokens)
     return lyrics_with_time
+
+
+def make_fake_stereo(audio, sampling_rate):
+    breakpoint()
+    left_channel = audio
+    right_channel = audio.copy()
+    right_channel = right_channel * 0.8
+    delay_samples = int(0.01 * sampling_rate)
+    right_channel = np.roll(right_channel, delay_samples)
+    right_channel[:,:delay_samples] = 0
+    stereo_audio = np.concatenate([left_channel, right_channel], axis=0)
+    
+    breakpoint()
+    return stereo_audio
     
 
 def inference(
@@ -148,6 +163,7 @@ def inference(
         cfg_strength,
         sample_steps=32,
         process_bar=True,
+        fake_stereo=True,
     ):
     with torch.inference_mode():
         latent = model.sample_block_cache(
@@ -163,9 +179,15 @@ def inference(
 
         basename = f"{song_name}.mp3"
         output_path = os.path.join(output_dir, basename)
+
+        num_channels = 1
+        audio = audio.float().cpu().numpy().squeeze()[None, :]
+        if fake_stereo:
+            audio = make_fake_stereo(audio, decoder.h.sampling_rate)
+            num_channels = 2
         
-        with pedalboard.io.AudioFile(output_path, "w", decoder.h.sampling_rate) as f:
-            f.write(audio.float().cpu().numpy().squeeze()[None, :])
+        with pedalboard.io.AudioFile(output_path, "w", decoder.h.sampling_rate, num_channels) as f:
+            f.write(audio)
 
 
 if __name__ == "__main__":
@@ -178,6 +200,7 @@ if __name__ == "__main__":
     parser.add_argument('--cfg-strength', type=float, default=2.0)
     parser.add_argument('--max-secs', type=float, default=210.0)
     parser.add_argument('--steps', type=int, default=16)
+    parser.add_argument('--fake-stereo', type=bool, default=True)
 
     args = parser.parse_args()
     
@@ -242,6 +265,7 @@ if __name__ == "__main__":
             song_name=song_name,
             sample_steps=args.steps,
             cfg_strength=cfg_strength,
+            fake_stereo=args.fake_stereo,
         )
 
 

@@ -139,7 +139,6 @@ def parse_lyrics(lyrics: str):
 
 
 def make_fake_stereo(audio, sampling_rate):
-    breakpoint()
     left_channel = audio
     right_channel = audio.copy()
     right_channel = right_channel * 0.8
@@ -147,8 +146,6 @@ def make_fake_stereo(audio, sampling_rate):
     right_channel = np.roll(right_channel, delay_samples)
     right_channel[:,:delay_samples] = 0
     stereo_audio = np.concatenate([left_channel, right_channel], axis=0)
-    
-    breakpoint()
     return stereo_audio
     
 
